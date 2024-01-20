@@ -13,7 +13,7 @@ struct SettingView: View {
 }
 
 struct APISettingView: View {
-    @AppStorage("queryHost") var queryHost: String = "p1txh7zfb3-3.algolianet.com"
+    @AppStorage("queryHost") var queryHost: String = "p1txh7zfb3-2.algolianet.com"
     @State var host = ""
     
     @AppStorage("queryKey") var queryKey: String = "766fcf8cd4746fa79b3d99852cfe8027"
@@ -24,13 +24,13 @@ struct APISettingView: View {
             TextField("Query Host: ", text: $host)
                 .onChange(of: host) { newValue in
                     if newValue.isEmpty {
-                        queryHost = "p1txh7zfb3-3.algolianet.com"
+                        queryHost = "p1txh7zfb3-2.algolianet.com"
                     } else {
                         queryHost = host
                     }
                 }
             TextField("Api Key: ", text: $key)
-                .onChange(of: host) { newValue in
+                .onChange(of: key) { newValue in
                     if newValue.isEmpty {
                         queryKey = "766fcf8cd4746fa79b3d99852cfe8027"
                     } else {

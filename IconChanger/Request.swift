@@ -74,16 +74,17 @@ class MyQueryRequestController {
          Request (POST https://p1txh7zfb3-3.algolianet.com/1/indexes/macOSicons/query)
          */
 
-        guard let URL = URL(string: "https://\(UserDefaults.standard.string(forKey: "queryHost") ?? "p1txh7zfb3-2.algolianet.com")/1/indexes/macOSicons/query") else { return [] }
+        let queryHost = UserDefaults.standard.string(forKey: "queryHost") ?? "p1txh7zfb3-2.algolianet.com"
+        let queryKey = UserDefaults.standard.string(forKey: "queryKey") ?? "766fcf8cd4746fa79b3d99852cfe8027"
+        guard let URL = URL(string: "https://\(queryHost)/1/indexes/macOSicons/query") else { return [] }
         var request = URLRequest(url: URL)
         request.httpMethod = "POST"
         
-        var queryHost = UserDefaults.standard.string(forKey: "queryHost")
-        var queryKey = UserDefaults.standard.string(forKey: "queryKey")
+        
 
         // Headers
         request.addValue("P1TXH7ZFB3", forHTTPHeaderField: "x-algolia-application-id")
-        request.addValue(queryKey ?? "766fcf8cd4746fa79b3d99852cfe8027", forHTTPHeaderField: "x-algolia-api-key")
+        request.addValue(queryKey, forHTTPHeaderField: "x-algolia-api-key")
         request.addValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15", forHTTPHeaderField: "User-Agent")
         request.addValue("https://macosicons.com", forHTTPHeaderField: "Origin")
 
