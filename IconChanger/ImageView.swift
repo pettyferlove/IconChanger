@@ -1,10 +1,3 @@
-//
-//  ImageView.swift
-//  IconChanger
-//
-//  Created by 朱浩宇 on 2022/4/28.
-//
-
 import SwiftUI
 import LaunchPadManagerDBHelper
 

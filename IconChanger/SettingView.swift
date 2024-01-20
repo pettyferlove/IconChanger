@@ -1,10 +1,3 @@
-//
-//  SettingView.swift
-//  IconChanger
-//
-//  Created by 朱浩宇 on 2022/4/28.
-//
-
 import SwiftUI
 
 struct SettingView: View {
@@ -21,16 +14,27 @@ struct SettingView: View {
 
 struct APISettingView: View {
     @AppStorage("queryHost") var queryHost: String = "p1txh7zfb3-3.algolianet.com"
-    @State var text = ""
+    @State var host = ""
+    
+    @AppStorage("queryKey") var queryKey: String = "766fcf8cd4746fa79b3d99852cfe8027"
+    @State var key = ""
 
     var body: some View {
         Form {
-            TextField("Query Host: ", text: $text)
-                .onChange(of: text) { newValue in
+            TextField("Query Host: ", text: $host)
+                .onChange(of: host) { newValue in
                     if newValue.isEmpty {
                         queryHost = "p1txh7zfb3-3.algolianet.com"
                     } else {
-                        queryHost = text
+                        queryHost = host
+                    }
+                }
+            TextField("Api Key: ", text: $key)
+                .onChange(of: host) { newValue in
+                    if newValue.isEmpty {
+                        queryKey = "766fcf8cd4746fa79b3d99852cfe8027"
+                    } else {
+                        queryKey = key
                     }
                 }
 
